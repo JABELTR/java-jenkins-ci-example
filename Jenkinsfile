@@ -29,10 +29,10 @@ stage('Pruebas') {
     }
     post {
         success {
-            echo ' ✅ La compilación y las pruebas fueron exitosas.'
+            echo 'La compilación y las pruebas fueron exitosas.'
         }
         failure {
-            echo '❌ Hubo errores en la compilación o en las pruebas.'
+            echo 'Hubo errores en la compilación o en las pruebas.'
         }
     }
 }
