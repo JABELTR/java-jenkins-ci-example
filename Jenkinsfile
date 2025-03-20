@@ -3,6 +3,7 @@ pipeline {
     tools {
         maven 'Maven'
         jdk 'JDK-23'
+        git 'Git'
     }
     stages {
         stage('Clonar código') {
@@ -12,26 +13,26 @@ pipeline {
         }
         stage('Compilar') {
             steps {
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
 stage('Pruebas') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
         stage('Empaquetar') {
             steps {
-                sh 'mvn package'
+                bat 'mvn package'
             }
         }
     }
     post {
         success {
-            echo 'La compilación y las pruebas fueron exitosas.'
+            echo ' ✅ La compilación y las pruebas fueron exitosas.'
         }
         failure {
-            echo 'Hubo errores en la compilación o en las pruebas.'
+            echo '❌ Hubo errores en la compilación o en las pruebas.'
         }
     }
 }
